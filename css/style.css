@@ -1,0 +1,603 @@
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
+@import url('https://fonts.googleapis.com/css?family=Cantarell');
+
+:root {
+  --clr-background: #18191d;
+  --clr-primary: #009687;
+  --clr-text: #ffffff;
+  --clr-daccent: #282e33;
+  --clr-laccent: #33393f;
+  --ff-head: "Fjalla One", sans-serif;
+  --ff-body: "Cantarell", sans-serif;
+}
+
+/* Reset for box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Fjalla One', 'Cantarell', sans-serif;
+  background-color: var(--clr-background);
+  color: var(--clr-text);
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 0rem 1rem;
+}
+
+/* Typography */
+p {
+  font-family: 'Cantarell', sans-serif;
+}
+
+h2, h3 {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+/* Button */
+a.btn {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  background-color: var(--clr-primary);
+  color: var(--clr-text);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Cantarell', sans-serif;
+}
+
+a.btn:hover {
+  transform: scale(1.1);
+}
+
+/* Navbar */
+header {
+  background-color: var(--clr-primary);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 8vh;
+  text-align: center;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 2em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle-label span {
+  transform: rotate(-90deg);
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+nav {
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  background-color: var(--clr-primary);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  margin: 1em 0em 1em 1em;
+  text-align: center;
+}
+
+nav a {
+  color: var(--clr-text);
+  text-decoration: none;
+  font-size: 1.2em;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  color: var(--clr-daccent);
+}
+
+.nav-toggle:checked~nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked~nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+/* Showcase */
+.showcase {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/showcase.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: 0;
+  overflow-y: hidden;
+}
+
+.showcase .container {
+  margin-top: 35vh;
+}
+
+.showcase h1 {
+  font-size: 4rem;
+}
+
+.showcase p {
+  margin-top: -20px;
+  font-size: 1.1rem;
+}
+
+/* Arrow animation */
+.arrow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 380px;
+}
+
+.arrow {
+  position: relative;
+  display: inline-block;
+  animation: bounce 1.1s linear infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Resources */
+.resource {
+  padding: 15px 15px;
+  text-align: center;
+}
+
+.resource a {
+  text-decoration: none;
+  color: var(--clr-text);
+}
+
+.resource a:hover {
+  color: var(--clr-primary);
+}
+
+.resource img {
+  background-color: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid var(--clr-primary);
+}
+
+/* General section */
+#general {
+  width: 100%;
+  height: 100%;
+}
+
+#general h2 {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+  line-height: 1em;
+}
+
+#general .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Sciences section */
+#sciences {
+  width: 100%;
+  height: 100%;
+}
+
+#sciences h2 {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+}
+
+#sciences .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Humanities section */
+#humanities {
+  width: 100%;
+  height: 100%;
+}
+
+#humanities h2 {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+}
+
+#humanities .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Programming section */
+#programming {
+  width: 100%;
+  height: 100%;
+}
+
+#programming h2 {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+}
+
+#programming .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Language section */
+#language {
+  width: 100%;
+  height: 100%;
+}
+
+#language h2 {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+}
+
+#language .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/*Math section */
+#math {
+  width: 100%;
+  height: 100%;
+}
+
+#math h2 {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+}
+
+#math .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/*Music section */
+#music {
+  width: 100%;
+  height: 100%;
+}
+
+#music h2 {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+}
+
+#music .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/*Other section */
+#other {
+  width: 100%;
+  height: 100%;
+}
+
+#other h2 {
+  margin-top: 200px;
+  text-align: center;
+  margin-bottom: 8vh;
+  font-size: 3rem;
+}
+
+#other .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 100px;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  color: var(--clr-primary);
+}
+
+footer p {
+  margin-top: -10px;
+}
+
+/* Back-to-top button */
+#back-to-top-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  font-size: 22px;
+  width: 50px;
+  height: 50px;
+  background: var(--clr-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-top {
+  transform: rotate(0.5turn);
+}
+
+.btnEntrance {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: btnEntrance;
+}
+
+/* zoomIn */
+/* @keyframes btnEntrance {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  to {
+    opacity: 1;
+  }
+} */
+/* fadeInUp */
+@keyframes btnEntrance {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.btnExit {
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+  animation-name: btnExit;
+}
+
+/* fadeOutDown */
+@keyframes btnExit {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+/* Media queries */
+@media screen and (min-width: 1000px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  nav {
+    all: unset;
+    text-align: center;
+  }
+
+  nav ul {
+    display: flex;
+    height: 8vh;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav li {
+    padding-left: 2.5em;
+  }
+
+  nav a {
+    opacity: 1;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 800px) {
+  .showcase {
+    height: 100%;
+    background-image: url("../img/showcase_mobile.png");
+  }
+
+  .showcase .container {
+    margin-top: 20vh;
+    text-align: center;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  #general .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #sciences .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #humanities .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #programming .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #language .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #math .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #music .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #other .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Smartphone */
+@media screen and (max-width: 500px) {
+  .showcase {
+    height: 100vh;
+    background-image: url("../img/showcase_mobile.png");
+  }
+
+  .showcase .container {
+    margin-top: 20vh;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .resource a:hover {
+    color: var(--clr-primary);
+  }
+
+  #general .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #sciences .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #humanities .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #programming .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #language .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #math .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #music .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #other .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #back-to-top-btn {
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .arrow-top {
+    width: 25px;
+  }
+}
